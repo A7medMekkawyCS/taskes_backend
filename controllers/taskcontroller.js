@@ -16,7 +16,7 @@ const createTask=async(req,res)=>{
     }catch(error)
     {
         console.error('Error',error.message);
-        res.status(404).json({status:error,message:"failed created task",error:error.message})
+        res.status(500).json({status:error,message:"failed created task",error:error.message})
 
 
     }
@@ -28,7 +28,7 @@ const getalltaskes=async(req,res)=>{
     res.status(200).json({status:true,message:"Taskes fetched succesfuly",data:{taskes}})
     }catch(error)
     {
-        res.status(404).json({status:error,message:"failed fetced tasks",error:error.message})
+        res.status(500).json({status:error,message:"failed fetced tasks",error:error.message})
 
 
     }
@@ -41,7 +41,7 @@ const getonetask=async(req,res)=>{
     res.status(200).json({status:true,message:"Taske fetched succesfuly",data:{onetask}})
     }catch(error)
     {
-        res.status(404).json({status:error,message:"failed fetced task",error:error.message})
+        res.status(500).json({status:error,message:"failed fetced task",error:error.message})
 
 
     }
@@ -54,7 +54,7 @@ const updatetask=async(req,res)=>{
     res.status(200).json({status:true,message:"task update successful",data:{afterupdate}})
     }catch(error)
     {
-        res.status(404).json({status:error,message:"failed update task",error:error.message})
+        res.status(500).json({status:error,message:"failed update task",error:error.message})
   
     }
 
@@ -66,7 +66,7 @@ const delettask=async(req,res)=>{
     res.status(200).json({status:true,message:"delet task succfully"})
     }catch(error)
     {
-        res.status(404).json({status:false,message:"failed task succfully"})
+        res.status(500).json({status:false,message:"failed task succfully"})
 
 
     }

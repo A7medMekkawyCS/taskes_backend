@@ -5,6 +5,8 @@ const ConnectDB=require('./config/db')
 const taskroutes=require('./routes/taskroutes')
 const logger = require('./middleware/logger');
 const errorHandler = require('./middleware/ErrorHandling');
+const authroutes=require('./routes/authroute')
+
 
 
 const app=express()
@@ -15,9 +17,11 @@ app.use(cors());
 app.use(logger);
 
 app.use('/api/task',taskroutes)
+app.use('/api/auth',authroutes)
 
 
 app.use(errorHandler)
+
 dotenv.config();
 ConnectDB();
 app.listen(port,(err)=>{
