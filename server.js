@@ -3,17 +3,21 @@ const dotenv=require('dotenv')
 const cors=require('cors')
 const ConnectDB=require('./config/db')
 const taskroutes=require('./routes/taskroutes')
+const logger = require('./middleware/logger');
+const errorHandler = require('./middleware/ErrorHandling');
+
 
 const app=express()
 const port=4000 || process.env.PORT
 
-app.use(express.json())
-app.use(cors())
+app.use(express.json());
+app.use(cors());
+app.use(logger);
 
 app.use('/api/task',taskroutes)
 
 
-
+app.use(errorHandler)
 dotenv.config();
 ConnectDB();
 app.listen(port,(err)=>{
@@ -23,6 +27,4 @@ app.listen(port,(err)=>{
    {
     console.log(console.error(err));
    }
-
-
 })
