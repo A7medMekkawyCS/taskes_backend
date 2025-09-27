@@ -25,7 +25,7 @@ const createTask=async(req,res)=>{
 const getalltaskes=async(req,res)=>{
     try{
     const taskes=await task.find();
-    res.status(200).json({status:true,message:"Taskes fetched succesfuly",data:{taskes}})
+    res.status(200).json({status:"sucess",code:200,message:"Taskes fetched succesfuly",data:{taskes}})
     }catch(error)
     {
         res.status(500).json({status:error,message:"failed fetced tasks",error:error.message})

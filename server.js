@@ -6,6 +6,7 @@ const taskroutes=require('./routes/taskroutes')
 const logger = require('./middleware/logger');
 const errorHandler = require('./middleware/ErrorHandling');
 const authroutes=require('./routes/authroute')
+const userroute=require('./routes/userroute')
 
 
 
@@ -18,6 +19,8 @@ app.use(logger);
 
 app.use('/api/task',taskroutes)
 app.use('/api/auth',authroutes)
+app.use('/api/users',userroute)
+
 
 
 app.use(errorHandler)
